@@ -10,9 +10,12 @@ const configRoutes = require('./routes/config');
 dotenv.config();
 const app = express();
 
-// const allowedOrigins = ['http://localhost:3000','https://notes-alpha-ten.vercel.app/'];
-
-app.use(cors());
+app.use(cors({
+    origin: ['https://notes-alpha-ten.vercel.app', 'http://localhost:3000'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true 
+}));
 app.use(helmet());
 app.use(express.json());
 
