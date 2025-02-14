@@ -1,22 +1,34 @@
 const express = require('express');
+const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const configRoutes = require('./routes/config');
-const cors = require('cors');
 
 dotenv.config();
 const app = express();
 
+const allowedOrigins = ['http://localhost:3000','https://notes-alpha-ten.vercel.app/'];
 
-app.use(cors());
-
+app.use(cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true 
+  }));
 app.use(helmet());
 app.use(express.json());
 
 connectDB();
+
 
 app.use('/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
