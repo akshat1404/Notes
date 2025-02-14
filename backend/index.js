@@ -10,8 +10,20 @@ const configRoutes = require('./routes/config');
 dotenv.config();
 const app = express();
 
-console.log(process.env);
-app.use(cors({ origin: process.env.TRUSTED_ORIGIN }));
+const allowedOrigins = ['http://localhost:3000'];
+
+app.use(cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true 
+  }));
 app.use(helmet());
 app.use(express.json());
 
