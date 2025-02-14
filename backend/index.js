@@ -10,20 +10,9 @@ const configRoutes = require('./routes/config');
 dotenv.config();
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000','https://notes-alpha-ten.vercel.app/'];
+// const allowedOrigins = ['http://localhost:3000','https://notes-alpha-ten.vercel.app/'];
 
-app.use(cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true 
-  }));
+app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
