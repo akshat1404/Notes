@@ -4,6 +4,7 @@ const User = require('../models/User');
 
 exports.signup = async (req, res) => {
   const {email, name, password } = req.body;
+
   try {
 
     let user= await User.findOne({ email });

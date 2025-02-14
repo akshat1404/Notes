@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Input from '../Utils/Input'
 import Dropdown from '../Utils/Dropdown'
 import { CATEGORY } from '../Category';
-import { post, put } from '../Axios/Axios';
+import { get, post, put } from '../Axios/Axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function CreateNote() {

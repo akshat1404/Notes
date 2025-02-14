@@ -1,27 +1,41 @@
 import React from 'react';
 
 const NoteCard = ({ notes, onDelete, onEdit }) => {
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleString(); 
+  };
+
   return (
     <div style={styles.cardContainer}>
-      {notes.map((note) => (
+      {notes?.map((note) => (
         <div key={note._id} style={styles.card}>
           <div>
             <h3 style={styles.title}>{note.title}</h3>
             <p style={styles.category}>{note.category}</p>
-            <p style={styles.content}>{note.content.slice(0,100) + (note.content.length>100 ? '...' : '')}</p>
+            <p style={styles.content}>
+              {note.content.slice(0, 100) + (note.content.length > 100 ? '...' : '')}
+            </p>
           </div>
-          <div className='mt-2' style={styles.buttonContainer}>
-            <div style={{width:'30%'}} >
-
+          <div>
+            <p style={styles.date}>
+                <strong>Created:</strong> {formatDate(note.createdAt)}
+                </p>
+                <p style={styles.date}>
+                <strong>Last Updated:</strong> {formatDate(note.updatedAt)}
+                </p>
+            <div className="mt-3" style={styles.buttonContainer}>
+                <div style={{ width: '30%' }}></div>
+                <button className="button green" onClick={() => onEdit(note)}>
+                    Edit
+                </button>
+                <button className="button red" onClick={() => onDelete(note._id)}>
+                    Delete
+                </button>
             </div>
-            <button className='button green' onClick={() => onEdit(note)}>
-              Edit
-            </button>
-            <button className='button red' onClick={() => onDelete(note._id)}>
-              Delete
-            </button>
           </div>
-        </div> 
+        </div>
       ))}
     </div>
   );
@@ -29,6 +43,7 @@ const NoteCard = ({ notes, onDelete, onEdit }) => {
 
 export default NoteCard;
 
+// Styles
 const styles = {
   cardContainer: {
     display: 'flex',
@@ -45,7 +60,7 @@ const styles = {
     backgroundColor: '#fff',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: '18px',
@@ -62,10 +77,15 @@ const styles = {
     color: '#333',
     marginBottom: '16px',
   },
+  date: {
+    fontSize: '12px',
+    color: '#888',
+    marginBottom: '8px',
+  },
   buttonContainer: {
-    margin:'5px',
+    margin: '5px',
     display: 'flex',
     justifyContent: 'space-between',
     gap: '8px',
-  }
+  },
 };

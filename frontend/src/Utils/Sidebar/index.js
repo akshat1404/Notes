@@ -8,6 +8,7 @@ function Sidebar(props) {
     <div className="sidebar" style={props?.style}>
       {props.items?.map((item) => (
         <button
+          style={item.style}
           key={item.name}
           className={`sidebar-button ${item.active ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate(item.path)}

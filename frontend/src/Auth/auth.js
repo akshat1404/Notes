@@ -82,7 +82,6 @@ function Auth() {
                                     }, (res) => {
                                         setSign(false);
                                         alert("Successfully Signed In");
-                                        console.log(res);
                                     });
                                 }}
                             >
