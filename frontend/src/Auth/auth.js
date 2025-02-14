@@ -73,7 +73,10 @@ function Auth() {
                                     let email = EMAIL.current.getValue();
                                     let password = PASSWORD.current.getValue();
                                     
-                                    if (!name || !email || !password || !validateEmail(email)) return;
+                                    if (!name || !email || !password || !validateEmail(email)){
+                                        alert('Suucessfully Signed In');
+                                        return ;
+                                    }
 
                                     post('auth/signup', {
                                         name: name,
