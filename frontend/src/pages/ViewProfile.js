@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import store from 'store';
 import { get } from '../Axios/Axios';
-import { useNavigate } from 'react-router-dom';
 import { PieChart, Pie, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ResponsiveContainer } from 'recharts';
 import { FiLogOut } from 'react-icons/fi';
 import './ViewProfile.css'
@@ -9,11 +8,10 @@ import './ViewProfile.css'
 function ViewProfile() {
     const [notes, setNotes] = useState([]);
     const userData = store.get('user');
-    const navigate = useNavigate();
 
     const handleLogout = () => {
-        store.clear();
-        navigate('/');
+        localStorage.clear();
+        window.location.reload('/');
     };
 
     const fetchNotes = () => {
