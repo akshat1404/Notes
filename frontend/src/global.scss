@@ -1,0 +1,137 @@
+@for $i from 1 through 10 {
+    .mb-#{$i} {
+      margin-bottom: #{$i * 0.25}rem;
+    }
+  
+    .mt-#{$i} {
+      margin-top: #{$i * 0.25}rem;
+    }
+   
+    .ml-#{$i} {
+      margin-left: #{$i * 0.25}rem;
+    }
+  
+    .mr-#{$i} {
+      margin-right: #{$i * 0.25}rem;
+    }
+
+    .m-#{$i} {
+      margin: #{$i * 0.25}rem;
+    }
+    
+    .margin-#{$i} {
+      margin: #{$i * 0.25}rem;
+    }
+  }
+  
+  .small-text {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .text-bold {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &.blue {
+      background-color: #007bff;
+      color: #fff;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  
+    &.green {
+      background-color: #28a745;
+      color: #fff;
+  
+      &:hover {
+        background-color: #218838;
+      }
+    }
+  
+    &.red {
+      background-color: #dc3545;
+      color: #fff;
+  
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
+
+@for $i from 1 through 10 {
+    .pb-#{$i} {
+      padding-bottom: #{$i * 0.25}rem;
+    }
+  
+    .pt-#{$i} {
+      padding-top: #{$i * 0.25}rem;
+    }
+  
+    .pl-#{$i} {
+      padding-left: #{$i * 0.25}rem;
+    }
+  
+    .pr-#{$i} {
+      padding-right: #{$i * 0.25}rem;
+    }
+  
+    .pd-#{$i} {
+      padding: #{$i * 0.25}rem;
+    }
+  }
+  
+@for $i from 1 through 10 {
+    .bb-#{$i} {
+      border-bottom: #{$i * 0.25}rem;
+    }
+  
+    .bt-#{$i} {
+      border-top: #{$i * 0.25}rem;
+    }
+  
+    .bl-#{$i} {
+      border-left: #{$i * 0.25}rem;
+    }
+  
+    .br-#{$i} {
+      border-right: #{$i * 0.25}rem;
+    }
+
+    .border-#{$i} {
+      border: #{$i * 1}px solid black;
+    }
+  }
+  
+  body {
+    margin: 0;
+    height: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .input-label {
+    font-size: 15px;
+    color: #333;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
