@@ -20,9 +20,9 @@ const Headers={
     }
 }
 
-const DEV_MODE=true;
+const DEV_MODE=false;
 
-const baseUrl = DEV_MODE? 'http://localhost:5001' :'';
+const baseUrl = DEV_MODE? 'http://localhost:5001' :'https://notes-backend-rbqe.onrender.com';
 
 export const post = async (url, payload, res) => {
     try {
