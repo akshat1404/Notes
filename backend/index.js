@@ -10,11 +10,13 @@ const configRoutes = require('./routes/config');
 dotenv.config();
 const app = express();
 
+console.log(process.env);
 app.use(cors({ origin: process.env.TRUSTED_ORIGIN }));
 app.use(helmet());
 app.use(express.json());
 
 connectDB();
+
 
 app.use('/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
