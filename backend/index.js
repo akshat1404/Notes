@@ -9,11 +9,19 @@ const configRoutes = require('./routes/config');
 dotenv.config();
 const app = express();
 
+const cors = require('cors');
+
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
+
 app.use(helmet());
 app.use(express.json());
 
 connectDB();
-
 
 app.use('/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
