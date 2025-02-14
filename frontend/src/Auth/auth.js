@@ -74,7 +74,7 @@ function Auth() {
                                     let password = PASSWORD.current.getValue();
                                     
                                     if (!name || !email || !password || !validateEmail(email)){
-                                        alert('Suucessfully Signed In');
+                                        alert('Invalid Or Missing Credentials');
                                         return ;
                                     }
 
