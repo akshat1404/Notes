@@ -5,18 +5,13 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const configRoutes = require('./routes/config');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
 
-const cors = require('cors');
 
-app.use(cors({
-    origin: '*', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-}));
+app.use(cors());
 
 app.use(helmet());
 app.use(express.json());
