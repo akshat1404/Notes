@@ -12,3 +12,5 @@ This is a full-stack Notes Application built using the MERN stack (MongoDB, Expr
 ## Live Demo
 - Frontend: https://notes-alpha-ten.vercel.app/view-profile
 - Backend: [[https://notes-backend.onrender.com](https://notes-backend.onrender.com)](https://dashboard.render.com/web/srv-cunoo29opnds73dapp10)
+
+Note That The Backend Is Deployed For The Free Plan Of Render, Hence It Might Take Some Time To Sign In Or Other API Calls.
